@@ -1,13 +1,21 @@
 package com.example.devtools;
 
-import org.springframework.stereotype.Controller;
+import com.example.devtools.domain.User;
+import com.example.devtools.service.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.List;
+
+@RestController
 public class MainController {
 
-    @GetMapping("/")
-    public String hello(){
-        return "hello_page";
+    @Autowired
+    UsersService usersService;
+
+    @GetMapping("/users")
+    public List<User> getUsers(){
+        return usersService.getAllUsers();
     }
 }
