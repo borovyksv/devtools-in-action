@@ -1,6 +1,5 @@
 package com.example.devtools.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +7,6 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -22,6 +20,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(unique = true)
     private String email;
 
     public User(String name, String lastName, String email) {
